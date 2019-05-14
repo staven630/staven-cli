@@ -7,12 +7,11 @@ const getVueTpl = (name, style, lang) => {
   style = Utils.toLowerCase(style);
 
   if (['ts', 'typescript'].includes(lang)) {
-    console.log(111);
     return (
 `<template>
-<div>
-  
-</div>
+  <div>
+    
+  </div>
 </template>
 
 <script lang="ts">
