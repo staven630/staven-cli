@@ -47,7 +47,7 @@ export default {
 };
 </script>
 
-<style scoped lang="css">
+<style scoped lang="${style}">
 
 </style>`);
   }
