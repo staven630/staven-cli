@@ -1,6 +1,6 @@
 {
   "name": "staven-cli",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "description": "&emsp;&emsp;实用的开发者工具箱。功能逐步增加更新",
   "main": "index.js",
   "dependencies": {
