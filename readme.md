@@ -1,4 +1,4 @@
-# [st-cli](https://github.com/staven630/st-cli)
+# [staven-cli](https://github.com/staven630/staven-cli)
 &emsp;&emsp;实用的开发者工具箱。功能逐步增加更新
 
 # 安装
