@@ -1,0 +1,59 @@
+{
+  "name": "staven-cli",
+  "version": "0.0.1",
+  "description": "&emsp;&emsp;实用的开发者工具箱。功能逐步增加更新",
+  "main": "index.js",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "inquirer": "^6.5.0",
+    "json-templater": "^1.2.0",
+    "mkdirp": "^0.5.1",
+    "ora": "^3.4.0",
+    "shelljs": "^0.8.3"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.1.0",
+    "@commitlint/config-conventional": "^8.1.0",
+    "commander": "^2.20.0",
+    "commitizen": "^4.0.3",
+    "commitlint-config-cz": "^0.12.0",
+    "conventional-changelog": "^3.1.8",
+    "conventional-changelog-cli": "^2.0.21",
+    "cz-customizable": "^6.2.0",
+    "husky": "^3.0.1",
+    "lint-staged": "^9.2.0",
+    "standard-version": "^6.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "commit": "git-cz",
+    "commit:retry": "git-cz --retry",
+    "commit:noverify": "git-cz --no-verify",
+    "release": "standard-version",
+    "push": "git push --follow-tags origin master"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/staven630/staven-cli.git"
+  },
+  "keywords": [],
+  "author": "staven <20287710@qq.com> (http://github.com/staven630)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/staven630/staven-cli/issues"
+  },
+  "homepage": "https://github.com/staven630/staven-cli#readme",
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-customizable"
+    },
+    "cz-customizable": {
+      "config": "./.cz-config.js"
+    }
+  }
+}
