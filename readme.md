@@ -1,54 +1,50 @@
-# [staven-cli](https://github.com/staven630/staven-cli)
-&emsp;&emsp;实用的前端工具箱。功能逐步增加更新
+# [st-cli](https://github.com/staven630/st-cli)
+&emsp;&emsp;实用的开发者工具箱。功能逐步增加更新
 
-## 安装
+# 安装
 ```
 npm i -g staven-cli
 //or
 yarn add global staven-cli
 ```
 
-## 常见命令行事件
-&emsp;&emsp;括号内为简写形式
-```
-staven tpl(t)：主要用来生成模板
-```
-
-## 事件
+# 命令行事件
+### 实践规则
 &emsp;&emsp;<>、[]均表示占位符，命令行中不需要加上
-* <文件名>：可以是路径+文件名。eg: staven t components/tab-list
-* [配置项]：直接配置项。eg: staven t a --vue
-* [配置项键名] (配置项键值): 赋值配置项。eg: staven t a --type vue
-
-### tpl(t)
-
-> staven tpl <filename> [--type] (value) [--scss]
-> 
-##### 直接配置项
-| 选项名 | 类型 | 可选范围 | 是否必填 | 描述 |
-| :---  | :--- | :--- | :--- | :--- | 
-| --vue  | String | --(vue/react/angular) | false | 选定生成vue类型的文件，等同于--type vue |
-| --ts  | String | --(js/ts) | false | 选定文件的js语言类型，等同于--lang ts |
-| --less  | String | --(css/less/sass/scss/stylus) | false | 选定文件的style类型，等同于--style less |
-
+```bash
+st t components/tab-list --type vue --style scss
 ```
-// 默认生成采用js、css的vue模板
-staven t hello-world --vue 
+* <文件名>
 
- // 生成采用stylus、ts的vue模板
-staven t hello-world --vue --ts --stylus
+&emsp;&emsp;可以是路径+文件名。eg: components/tab-list
+
+* [配置项]
+  
+&emsp;&emsp;直接配置项。eg: --type、--style
+
+* (配置项键值)
+  
+ &emsp;&emsp;配置项的值。eg: vue、scss
+
+### 事件列表
+| 命令          | 简写        | 描述         | 实例         |
+| :------------ | :---------- | :----------- | :----------- |
+| st add <name> | st a <name> | 添加配置信息 | st add husky |
+
+
+# add：添加配置
+
+&emsp;&emsp;用于一键添加各类配置。
+```bash
+st a husky 
+```
+&emsp;&emsp;支持同时配置多项。
+```bash
+st a husky commitizen
 ```
 
-##### 赋值配置项
-| 选项名 | 类型 | 取值 | 是否必填 | 描述 |
-| :---  | :--- | :--- | :--- | :--- | 
-| --type  | String | vue/react/angular | false | 选定生成vue类型的文件 |
-| --lang  | String | js/ts | false | 选定文件的js语言类型 |
-| --style  | String | css/less/sass/scss/stylus | false | 选定文件的style类型 |
 
-
-```
-staven t hello-world --type vue --lang ts --style scss
-// 等价于
-staven t hello-world --vue --ts --stylus
-```
+| 命令                | 简写            | 描述                                                                                                                                                                                                                                                                                                                                                       |
+| :------------------ | :-------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| st add husky        | st a husky      | husky、lint-staged配置git hooks辅助工作流。eg：[集成TypeScript + ESLint + Pritter + Husky + Jest前端开发利器](https://github.com/staven630/blog/blob/master/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/%E9%9B%86%E6%88%90TypeScript%20%2B%20ESLint%20%2B%20Pritter%20%2B%20Husky%20%2B%20Jest%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E5%88%A9%E5%99%A8.md) |
+| st add   commitizen | st a commitizen | [Git commit message规范化提交](https://github.com/staven630/blog/blob/master/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/Git%20commit%20message%E8%A7%84%E8%8C%83%E5%8C%96%E6%8F%90%E4%BA%A4.md)                                                                                                                                                         |

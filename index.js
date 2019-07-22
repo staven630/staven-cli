@@ -1,25 +1,22 @@
-const pkg = require('./package.json');
-const program = require('commander');
-const inquirer = require('inquirer');
-const Web = require('./constants/frontweb');
+const pkg = require('./package.json')
+const program = require('commander')
 
-const option = (obj, types, flag = 1) => {
-  types.forEach(item => obj.option(flag === 2 ? `--${item} [value]` :  `--${item}`, `${item}`));
-};
+program.version(pkg.version, '-v, --version')
 
-program.version(pkg.version, '-v, --version');
+program
+  .command('tpl <filename> [args...]')
+  .alias('t')
+  .description('Generate template files')
+  .action((filename, args, options) => {
+    require('./libs/add/tpl.js')(filename, args, options)
+  })
 
-const tpl = program
-  .command('tpl <name>')
-  .alias('t');
-  
-option(tpl, Web.types);
-option(tpl, Web.langs);
-option(tpl, Web.styles);
-option(tpl, Web.values, 2);
+program
+  .command('add <configName> [args...]')
+  .alias('a')
+  .description('Adding configuration files')
+  .action((configName, args, options) => {
+    require('./libs/add/index.js')(configName, args, options)
+  })
 
-tpl.action((name, args) => {
-    require('./libs/tpl.js')(name, args);
-  });
-
-program.parse(process.argv);
+program.parse(process.argv)
