@@ -5,7 +5,6 @@ program.version(pkg.version, '-v, --version')
 
 program
   .command('tpl <filename> [args...]')
-  .alias('t')
   .description('Generate template files')
   .action((filename, args, options) => {
     require('./libs/add/tpl.js')(filename, args, options)
@@ -17,6 +16,13 @@ program
   .description('Adding configuration files')
   .action((configName, args, options) => {
     require('./libs/add/index.js')(configName, args, options)
+  })
+
+program
+  .command('env <configName> [args...]')
+  .description('Adding Environment Configuration')
+  .action((configName, args, options) => {
+    require('./libs/env/index.js')(configName, args, options)
   })
 
 program.parse(process.argv)
